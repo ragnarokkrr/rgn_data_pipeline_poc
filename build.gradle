@@ -1,0 +1,40 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.4.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'ragna'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	//implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation ('org.springframework.boot:spring-boot-starter-data-redis:2.0.4.RELEASE') {
+		exclude group: 'io.lettuce', module: 'lettuce-core'
+	}
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.apache.camel:camel-spring-boot-starter:2.17.0'
+    implementation 'org.apache.camel:camel-kafka:2.23.1'
+    implementation 'org.scala-lang:scala-library:2.10.4'
+    implementation 'org.apache.kafka:kafka_2.11:2.2.0'
+	compile 'org.apache.commons:commons-pool2:2.6.2'
+	compile 'redis.clients:jedis:2.9.0'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.kafka:spring-kafka-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+}
