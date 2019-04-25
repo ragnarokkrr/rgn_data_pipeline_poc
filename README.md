@@ -82,6 +82,8 @@ Despite that we should observe the following points:
 
 #### Scalability/Performance Notes
 
+Since we rely on separated and scalable NoSQL DBs as communication channel/storage (Kafka) and stats computation (Redis), this design is well grounded for future scalability needs yet fully functional for a small deployment. 
+
 Further details depends on target platform (Kubernetes or AWS/GCP).
 
 We should define a correct partitioning strategy that could be applied to both services and DBs.
@@ -118,6 +120,8 @@ java -jar rgn_data_pipeline_poc-0.0.1-SNAPSHOT.jar
 ## TODO
 
 * add camel route testing
+* Implement Director REST API
+* split components in self contained java projects
 * Fix RedisTemplate TypeConverters
 * define and implement rules for already processed files
 * improve error handling
