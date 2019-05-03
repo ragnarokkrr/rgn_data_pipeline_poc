@@ -51,9 +51,9 @@ Notifies `Reporter` component about finished file processing.
 
 #### Refactorings
 
-Current Stack is a POC. Despite that the current components design are loosely coupled enough to easily evolve to production quality deployment in Kubernetes or AWS.
+Current Stack is a POC. Despite that the current components design are loosely coupled enough to easily evolve to production quality deployment in Kubernetes or AWS. 
 
-Following components in package structure can be refactored to a stand-alone Spring Boot project:
+All components are organized with Separation of Concerns (SOC) in mind. So following components in package structure can be refactored to a stand-alone Spring Boot project each:
 
 * `ragna.pipeline.consumer`
 * `ragna.pipeline.director`
@@ -66,10 +66,9 @@ Next component should be provided as binary dependency:
 
 * `ragna.pipeline.common`
 
-
 #### Cloud Enable
 
-Once the current workflow is already impĺemented using Redis and Kafka DBs, communications can be considered well grounded already.
+The current workflow is already impĺemented using Redis and Kafka DBs, so communications can be considered well grounded already.
 
 Despite that we should observe the following points:
 
@@ -79,7 +78,6 @@ Despite that we should observe the following points:
 * Implement a deployment pipeline using Jenkins, for example
 * Implement Terraform provisioning scripts for DB infrastructure
 
-
 #### Scalability/Performance Notes
 
 Since we rely on separated and scalable NoSQL DBs as communication channel/storage (Kafka) and stats computation (Redis), this design is well grounded for future scalability needs yet fully functional for a small deployment. 
@@ -88,8 +86,12 @@ Further details depends on target platform (Kubernetes or AWS/GCP).
 
 We should define a correct partitioning strategy that could be applied to both services and DBs.
 
-
 ## Running POC
+
+## Pre-requisites
+
+* Java 8
+* Docker, Docker Compose
 
 ### Create directories
 
