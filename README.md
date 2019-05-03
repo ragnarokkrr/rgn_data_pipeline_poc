@@ -124,7 +124,7 @@ java -jar rgn_data_pipeline_poc-0.0.1-SNAPSHOT.jar
 * add camel route testing
 * Implement Director REST API
 * split components in self contained gradle projects
-* write a new `docker-compose.yml` for all components
+* write a new `docker-compose.yml` for both splitted components and DBs
 * Fix RedisTemplate TypeConverters
 * define and implement rules for already processed files
 * improve error handling
