@@ -88,7 +88,7 @@ We should define a correct partitioning strategy that could be applied to both s
 
 ## Running POC
 
-## Pre-requisites
+### Pre-requisites
 
 * Java 8
 * Docker, Docker Compose
@@ -123,7 +123,8 @@ java -jar rgn_data_pipeline_poc-0.0.1-SNAPSHOT.jar
 
 * add camel route testing
 * Implement Director REST API
-* split components in self contained java projects
+* split components in self contained gradle projects
+* write a new `docker-compose.yml` for all components
 * Fix RedisTemplate TypeConverters
 * define and implement rules for already processed files
 * improve error handling
